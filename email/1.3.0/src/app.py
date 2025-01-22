@@ -94,7 +94,7 @@ class Email(AppBase):
             s.starttls()
 
         self.logger.info("Pre SMTP auth")
-        if len(username) > 1 or len(password) > 1:
+        if len(username) > 1 and len(password) > 1:
             try:
                 s.login(username, password)
             except smtplib.SMTPAuthenticationError as e:
